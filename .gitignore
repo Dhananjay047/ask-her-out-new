@@ -1,0 +1,22 @@
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dependencies (if you add any)
+node_modules/
+
+# Local files to never commit
+.env
+config.local.js
+
+# Sensitive files - Never commit your EmailJS credentials
+# They should only be entered in the app UI and saved in browser LocalStorage
