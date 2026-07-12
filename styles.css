@@ -344,6 +344,26 @@ body {
     box-shadow: 0 0 10px rgba(118, 75, 162, 0.2);
 }
 
+#dateInput,
+#placeInput,
+#selectedOption {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#dateInput:focus,
+#placeInput:focus,
+#selectedOption:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 10px rgba(118, 75, 162, 0.2);
+}
+
 /* Success Modal */
 .success-modal {
     background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);

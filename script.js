@@ -12,14 +12,11 @@ const dateInput = document.getElementById('dateInput');
 const placeInput = document.getElementById('placeInput');
 const otherPlaceGroup = document.getElementById('otherPlaceGroup');
 const otherPlace = document.getElementById('otherPlace');
+const selectedOptionGroup = document.getElementById('selectedOptionGroup');
+const selectedOption = document.getElementById('selectedOption');
+const selectedOptionLabel = document.getElementById('selectedOptionLabel');
 const restartBtn = document.getElementById('restartBtn');
-const contactBtn = document.getElementById('contactBtn');
-const contactForm = document.getElementById('contactForm');
 
-// ========== Contact Button Handler ==========
-contactBtn.addEventListener('click', () => {
-    contactModal.style.display = 'flex';
-});
 
 // ========== Letter Click Handler ==========
 letter.addEventListener('click', () => {
@@ -53,10 +50,15 @@ placeInput.addEventListener('change', (e) => {
     if (e.target.value === 'Other') {
         otherPlaceGroup.style.display = 'block';
         otherPlace.required = true;
+    } else if(e.target.value !== '') {
+        selectedOptionGroup.style.display = 'block';
+        selectedOption.required = true;
+        selectedOptionLabel.textContent = `✍️ Which ${e.target.value} are you interested in?`;
     } else {
         otherPlaceGroup.style.display = 'none';
         otherPlace.required = false;
-        otherPlace.value = '';
+        selectedOptionGroup.style.display = 'none';
+        selectedOption.required = false;
     }
 });
 
@@ -85,6 +87,8 @@ restartBtn.addEventListener('click', () => {
     placeInput.value = '';
     otherPlace.value = '';
     otherPlaceGroup.style.display = 'none';
+    selectedOption.value = '';
+    selectedOptionGroup.style.display = 'none';
     letter.style.opacity = '1';
 });
 
@@ -104,6 +108,7 @@ async function sendEmailNotification(date, place) {
     // Email notification for date confirmation
     // In a real app, this would send to your backend
     console.log('Date confirmation recorded:', { date, place });
+    window.location.href = "mailto:dhananjay.sahu.586@gmail.com?subject=Date Confirmation&body=You have a date scheduled for " + date + " at " + place;
 }
 
 async function sendContactEmail(name, email, message) {
