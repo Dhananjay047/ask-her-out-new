@@ -67,7 +67,7 @@ dateForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const selectedDate = dateInput.value;
-    const selectedPlace = placeInput.value === 'Other' ? otherPlace.value : placeInput.value;
+    const selectedPlace = placeInput.value === 'Other' ? otherPlace.value : placeInput.value + (selectedOption.value ? ` (${selectedOption.value})` : '');
     
     // Show success message
     const successMessage = document.getElementById('successMessage');
